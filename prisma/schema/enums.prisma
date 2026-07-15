@@ -1,0 +1,29 @@
+enum UserRole {
+  USER
+  ADMIN
+  LANDLORD
+}
+
+enum UserStatus {
+  ACTIVE
+  BAN
+}
+
+enum RentalReqStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ACTIVE
+  COMPLETED
+}
+
+enum PaymentProvider {
+  STRIPE
+  SSLCOMMERZ
+}
+
+enum PaymentStatus {
+  COMPLETED
+  FAILED
+  CANCELED
+}
