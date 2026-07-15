@@ -12,7 +12,7 @@ https://rent-nest-a4.vercel.app/
 
 # 🧩 ER Diagram
 
-https://drawsql.app/teams/rafi-ahmmed/diagrams/rentnest
+https://drawsql.app/teams/musarraf-hosen/diagrams/rentnest-2
 
 ---
 
@@ -165,6 +165,6 @@ https://drawsql.app/teams/rafi-ahmmed/diagrams/rentnest
 
 # 👨‍💻 Author
 
-**Rafi Ahmmed Siyam**
+****
 "# RentNest_backend" 
 "# RentNest_backend" 
