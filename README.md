@@ -1,170 +1,291 @@
-# 🏠 RentNest API
+# 🏠 RentNest Backend API
 
-RentNest API is a RESTful backend service built with Express.js, TypeScript, Prisma ORM, and Prisma Postgres. It provides a complete property rental management system with secure authentication, role-based authorization, property management, rental request handling, Stripe payment integration, review management, and admin functionalities.
+A modern and scalable **Rental Property Management REST API** built with **Node.js, Express.js, TypeScript, Prisma ORM, and PostgreSQL**.
+
+The system provides secure authentication, property management, rental requests, payment processing, reviews, and role-based access control for **Tenants**, **Landlords**, and **Admins**.
 
 ---
 
 # 🚀 Live API
 
-https://rent-nest-a4.vercel.app/
+🔗 https://rent-nest-a4.vercel.app/
+
+---
+
+# 📂 GitHub Repository
+
+🔗 https://github.com/mca-programmer/RentNest_backend
 
 ---
 
 # 🧩 ER Diagram
 
-https://drawsql.app/teams/musarraf-hosen/diagrams/rentnest-2
+🔗 https://drawsql.app/teams/musarraf-hosen/diagrams/rentnest-2
+
+---
+
+# 📖 Project Overview
+
+RentNest is a rental property management platform where landlords can list rental properties, tenants can browse and request rentals, and administrators can manage the entire system securely.
+
+The backend follows a clean RESTful API architecture with JWT authentication, role-based authorization, Prisma ORM, and PostgreSQL.
 
 ---
 
 # ✨ Features
 
 - 🔐 JWT Authentication & Authorization
-- 👤 Role-based Access Control (User/Tenant, Landlord & Admin)
-- 🏠 Property Management (CRUD)
-- 🔍 Property Filter
-- 📅 Rental Request Management
-- ✅ Rental Approval Workflow
-- 💳 Stripe Checkout Payment Integration
-- 🔔 Stripe Webhook Handling
-- 💰 Payment History Management
+- 👥 Role-Based Access Control (Admin, Landlord, Tenant)
+- 🏠 Property Management
+- 📄 Rental Request Management
+- 💳 Payment Integration
 - ⭐ Property Reviews & Ratings
-- 🛡 Global Error Handling
-- 🔒 Password Hashing with Bcrypt
-- ⚡ Prisma ORM with
+- 👤 User Management
+- 🔒 Password Hashing using bcrypt
+- 📦 Prisma ORM
+- 🗄 PostgreSQL Database
+- 🌍 RESTful API Design
+- ⚡ TypeScript Support
+- ❌ Centralized Error Handling
+- ✅ Request Validation
+- 🌐 Environment Variable Configuration
 
 ---
 
-# 🛠 Technologies Used
+# 🛠️ Tech Stack
 
-### Backend
+## Backend
 
 - Node.js
 - Express.js
 - TypeScript
 
-### Database
+## Database
 
-- Prisma Postgres
+- PostgreSQL
 - Prisma ORM
-
-### Authentication
-
-- JWT (Access Token)
-- BcryptJS
-
-### Payment
-
-- Stripe Checkout
-- Stripe Webhooks
-
-### Other Tools
-
-- Prisma Client
-- Cookie Parser
-- CORS
-- HTTP Status
-- Chalk
-- Dotenv
-
-### Deployment
-
-- Vercel
-
----
-
-# 📌 API Endpoints
 
 ## Authentication
 
-| Method | Endpoint          | Description                    |
-| ------ | ----------------- | ------------------------------ |
-| POST   | `/api/auth/login` | Login user                     |
-| GET    | `/api/auth/me`    | Get authenticated user profile |
+- JWT (Access Token & Refresh Token)
+- bcrypt
+
+## Payment
+
+- Stripe
+
+## Development Tools
+
+- ts-node-dev
+- ESLint
+- Prettier
+- dotenv
 
 ---
 
-## Users
+# 📁 Project Structure
 
-| Method | Endpoint        | Description         |
-| ------ | --------------- | ------------------- |
-| POST   | `/api/register` | Register a new user |
-
----
-
-## Properties (Public)
-
-| Method | Endpoint              | Description                 |
-| ------ | --------------------- | --------------------------- |
-| GET    | `/api/properties`     | Get all properties          |
-| GET    | `/api/properties/:id` | Get property details        |
-| GET    | `/api/categories`     | Get all property categories |
-
----
-
-## Landlord
-
-### Property Management
-
-| Method | Endpoint                       | Description           |
-| ------ | ------------------------------ | --------------------- |
-| POST   | `/api/landlord/properties`     | Create a new property |
-| PUT    | `/api/landlord/properties/:id` | Update a property     |
-| DELETE | `/api/landlord/properties/:id` | Delete a property     |
-
-### Rental Requests
-
-| Method | Endpoint                     | Description                                     |
-| ------ | ---------------------------- | ----------------------------------------------- |
-| GET    | `/api/landlord/requests`     | Get all rental requests for landlord properties |
-| PATCH  | `/api/landlord/requests/:id` | Approve or reject a rental request              |
+```text
+src
+├── app
+│   ├── modules
+│   ├── middleware
+│   ├── routes
+│   ├── utils
+│   ├── interfaces
+│   └── errors
+│
+├── config
+├── prisma
+├── app.ts
+└── server.ts
+```
 
 ---
 
-## Rental Requests
+# ⚙️ Installation
 
-| Method | Endpoint           | Description                              |
-| ------ | ------------------ | ---------------------------------------- |
-| POST   | `/api/rentals`     | Create a rental request                  |
-| GET    | `/api/rentals`     | Get authenticated user's rental requests |
-| GET    | `/api/rentals/:id` | Get rental request details               |
+## Clone the Repository
 
----
+```bash
+git clone https://github.com/mca-programmer/RentNest_backend.git
+```
 
-## Payments
+## Go to the Project Folder
 
-| Method | Endpoint                | Description                              |
-| ------ | ----------------------- | ---------------------------------------- |
-| POST   | `/api/payments`         | Create Stripe Checkout Session           |
-| POST   | `/api/payments/webhook` | Stripe Webhook endpoint                  |
-| GET    | `/api/payments`         | Get authenticated user's payment history |
-| GET    | `/api/payments/:id`     | Get payment details                      |
-| GET    | `/api/payments/success` | Payment success callback                 |
-| GET    | `/api/payments/failed`  | Payment failed callback                  |
+```bash
+cd RentNest_backend
+```
 
----
+## Install Dependencies
 
-## Reviews
-
-| Method | Endpoint       | Description              |
-| ------ | -------------- | ------------------------ |
-| POST   | `/api/reviews` | Submit a property review |
+```bash
+npm install
+```
 
 ---
 
-## Admin
+# 🔑 Environment Variables
 
-| Method | Endpoint                | Description                     |
-| ------ | ----------------------- | ------------------------------- |
-| POST   | `/api/admin/categories` | Create a new property category  |
-| GET    | `/api/admin/users`      | Get all users                   |
-| PATCH  | `/api/admin/users/:id`  | Update user status (Active/Ban) |
-| GET    | `/api/admin/properties` | Get all properties              |
-| GET    | `/api/admin/rentals`    | Get all rental requests         |
+Create a `.env` file in the project root and configure the following variables:
+
+```env
+PORT=5000
+
+DATABASE_URL=your_database_url
+
+APP_URL=http://localhost:5000
+
+BCRYPT_SALT_ROUNDS=10
+
+JWT_ACCESS_TKN_SECRET=your_access_secret
+
+JWT_REFRESH_TKN_SECRET=your_refresh_secret
+
+JWT_ACCESS_EXPIRES_IN=1d
+
+JWT_REFRESH_EXPIRES_IN=30d
+
+STRIPE_SECRET_KEY=your_stripe_secret
+
+STRIPE_PUBLISHABLE_KEY=your_publishable_key
+
+STRIPE_WEBHOOK_SECRET=your_webhook_secret
+```
+
+---
+
+# ▶️ Running the Project
+
+## Development
+
+```bash
+npm run dev
+```
+
+## Production
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+# 📌 API Modules
+
+- Authentication
+- Users
+- Properties
+- Rental Requests
+- Payments
+- Reviews
+- Admin Dashboard
+
+---
+
+# 👥 User Roles
+
+## 👤 Tenant
+
+- Register
+- Login
+- Browse Properties
+- Send Rental Requests
+- Make Payments
+- Add Reviews
+
+---
+
+## 🏠 Landlord
+
+- Register
+- Login
+- Create Properties
+- Update Properties
+- Delete Properties
+- Approve Rental Requests
+- Reject Rental Requests
+
+---
+
+## 👨‍💼 Admin
+
+- Manage Users
+- Manage Properties
+- Manage Rental Requests
+- Manage Payments
+- Dashboard Monitoring
+
+---
+
+# 📦 REST API Response
+
+```json
+{
+  "success": true,
+  "message": "Request Successful",
+  "data": {}
+}
+```
+
+---
+
+# 📜 Scripts
+
+```bash
+npm run dev
+npm run build
+npm start
+npm run lint
+npm run lint:fix
+```
+
+---
+
+# 🔒 Security Features
+
+- JWT Authentication
+- Refresh Token Support
+- Password Hashing (bcrypt)
+- Role-Based Authorization
+- Environment Variables
+- Centralized Error Handling
+- Input Validation
+
+---
+
+# 📈 Future Improvements
+
+- Email Verification
+- Password Reset
+- Image Upload
+- Property Wishlist
+- Real-time Notifications
+- Analytics Dashboard
 
 ---
 
 # 👨‍💻 Author
 
-****
-"# RentNest_backend" 
-"# RentNest_backend" 
+## MD Musarraf Hosen
+
+🌐 GitHub
+
+https://github.com/mca-programmer
+
+---
+
+# ⭐ Support
+
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+
+Your support is greatly appreciated!
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+© 2026 MD Musarraf Hosen
